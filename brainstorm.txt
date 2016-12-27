@@ -1,0 +1,50 @@
+Game
+-who wins
+
+Board
+- determine who wins
+- 
+
+Cell
+-holds a value
+
+Ships
+-2x
+-3x
+-location (Cells)??
+-sunk?
+
+ShipPlacement
+
+Players
+-human
+-computer
+
+human board
+[
+  [ 1, 1, 0 ],
+  [ "", 0, 0 ],
+  [ 0, 0, 0 ],
+]
+
+[
+  [ "H", 1, 0 ],
+  [ 0, 0, 0 ],
+  [ 0, 0, 0 ],
+]
+
+Inside Board
+@state = [
+  [ cell, cell, cell ],
+  [ cell, cell, cell ],
+  [ cell, cell, cell ],
+]
+
+Inside Cell
+STATES = ["Empty", "Ship", "Miss", "Hit"]
+//once game has started
+TRANSITION = {"Empty" => "Miss", "Ship" => "Hit", "Hit" => "Hit", "Miss" => "Miss"}
+@state = "Empty"
+
+def transition
+  @state = TRANSITION[@state]
